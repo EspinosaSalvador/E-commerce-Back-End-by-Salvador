@@ -16,41 +16,36 @@
 
 ## Introduction
 
-Welcome to the E-commerce back end application. this application allows users to write, save, update, and create new information to the database through this Javascript code
+Welcome to the E-commerce back end application. this application allows users to write, save, update, delete and create new information to the database through this Javascript code
 
-[Link to my Github Repository](https://github.com/EspinosaSalvador/Salvador-Employee-Tracker)
+[Link to my Github Repository](https://github.com/EspinosaSalvador/E-commerce-Back-End-by-Salvador)
 
 ## Features
 
-This app is a command-line interface (CLI) program for managing employee data in a MySQL database. The following are the features of this app:
+This app is suppose to be used at the same time with Insomnia so we can add, update, eliminate the db. this will be more intuitive for the user.
 
-* View all departments: This feature allows the user to view a table of all the departments in the company.
-* View all roles: This feature allows the user to view a table of all the job roles in the company.
-* View all employees: This feature allows the user to view a table of all the employees in the company.
-* Add a department: This feature allows the user to add a new department to the database.
-* Add a role: This feature allows the user to add a new job role to the database.
-* Add an employee: This feature allows the user to add a new employee to the database.
-* Update an employee role: This feature allows the user to update the job role of an existing employee.
-* Exit: This feature allows the user to exit the application.
+* View all Category, or only see one specific one, update, or delete.
+* View all products, or only see a specific one, update, or delete.
+* View all tags or only see a specific one, update or delete.
 
 ## Requirements
 
 * Node.js installed on the system
-* console.table package version 0.10.0 or higher installed
-* inquirer package version 8.2.4 or higher installed
+* dotenv to version 8.2.0
+* sequelize to version 5.21.7
 * mysql2 package version 3.2.1 or higher installed
 
 ## Installation
 
-To install this project please proceed to my [GitHub Repository](https://github.com/EspinosaSalvador/Salvador-Employee-Tracker)
+To install this project please proceed to my [GitHub Repository](https://github.com/EspinosaSalvador/E-commerce-Back-End-by-Salvador)
 
 you should be able to see this,
 
-![Github Repository](./img/github-repository.png)
+![Github Repository](./Develop/img/github%20repo.png)
 
 Click on code as shown in the image
 
-![Click on Code](./img/ssh-key.png)
+![Click on Code](./Develop/img/ssh%20key.png)
 
 Copy the SSH key or the HTTPS key and open.
 
@@ -61,7 +56,7 @@ Copy the SSH key or the HTTPS key and open.
 either one of this will work. please proceed to the terminal an put in your Terminal,
 
 ```
-git clone git@github.com:EspinosaSalvador/Salvador-Employee-Tracker.git
+git clone git@github.com:EspinosaSalvador/E-commerce-Back-End-by-Salvador.git
 ```
 
 and now you have a copy of the code.
@@ -90,61 +85,82 @@ git checkout ＜branchname＞
 
 If you want to show us your code and merge please open a pull request on
 
-[Github](https://github.com/EspinosaSalvador/Salvador-Employee-Tracker/pulls).
+[Github](https://github.com/EspinosaSalvador/E-commerce-Back-End-by-Salvador/pulls).
 
-![Pull request](./img/pull-request.png)
+![Pull request](./Develop/img/pull%20request.png)
 
 ## What you should be able to see
 
-To start this app please use npm start in the command line or your terminal. after that you should be able to see this
+To start this app please use npm i to install the dependencies that we have on the package.json after that please enter to your msql password and user so you can download the database.
 
-![app running and showing a list of commands that we can use for the app.](./img/app-running.png)
+```
+mysql -u root -p
+```
 
-I am going to show you some basic commands that we are using for example lest start with "view all departments".
+ that I have to do that please insert this into your terminal
 
-![view all departments img.](./img/view%20all%20departments.png)
+```
+SOURCE db/schema.sql
+```
 
-the image above show us a table showing us the follwing on its rows:
+after the db is installed please proceed to exit mysql
 
-* id
-* name
+just type in the terminal the following.
 
-to continue lets look at the table from roles. here is the way that is looking as in version 1.00.
+```
+exit
+```
 
-we are able to see:
+after you have done this please also use the following command to your terminal
 
-* id
-* title
-* salary
-* department_id.
+```
+node seeds/index.js
+```
+after all of these is done please proceed to use the script that I have on package.json
 
-![view all roles img.](./img/view%20all%20roles.png)
+which is 
+
+```
+npm start
+```
+
+![app running on terminal](./Develop/img/terminal%20running%20server.png)
+
+lets open our insomnia app in the computer and lets start playing with the js.
+
+for this expample we will be going with all the categories that we can. but the other one will be used and or explain more indepth in the video.
+
+![view all categories img.](./Develop/img/all%20categories.png)
+
+the image above show us what we need to input inside the url to see our work in this example we are using the get to see all our categories from the db/e-commerce
+
+lets proceed by seeing the url that we need to input to see only one category
+
+![one category](./Develop/img/one%20category.png)
+
+as you can see above is pretty similar the only difference is that it has a number with the id at the end.
+
+![update category](./Develop/img/update%20category%20by%20id.png)
 
 when we click on view all employees you should be able to see this.
 
 you should see the following rows in the table:
 
-* id
-* first_name
-* last_name
-* role_id
-* manager_id
+in this example we only want to update id 3 and we want to change the name of the category_name to :"eat_my_shorts"
 
-![view all employees](./img/view%20all%20employees.png)
+to see if this works please go back to your get section and see if this is updated.
 
-and if you wish to add departments this is what you should be able to see.
+![delete category](./Develop/img/delete%20category.png)
 
-just type the name of the department that you wish.
+to delete the category we only need the id as in previous example as soon as you send this it will be deleted from the db.
 
-![Add department](./img/add-department.png)
-
-and repeat the same process with add role and add employee. just follow the instructions and see what the command line is asking you to do.
+and repeat the same process with tag, product and category.
 
 ## Troubleshooting
 
-The Employee-Tracker is in version 1.0, please let me know if there are anybug in the webpage by issuing it in [Github](https://github.com/EspinosaSalvador/Salvador-Employee-Tracker/issues)
+The Employee-Tracker is in version 1.0, please let me know if there are anybug in the webpage by issuing it in [Github](https://github.com/EspinosaSalvador/E-commerce-Back-End-by-Salvador/issues)
 
-![Issues-webpage](./img/issue.png)
+![Issues-webpage](./Develop/img/issues.png)
 
 ## Next Phase Development
 
